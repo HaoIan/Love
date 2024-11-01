@@ -4,7 +4,7 @@ import java.awt.event.*;
 import java.util.Random;
 import javax.swing.*;
 
-public class test {
+class App {
 
     JFrame frame = new JFrame(":D");
     JLabel text = new JLabel("Do you love me?");
@@ -13,7 +13,7 @@ public class test {
     JButton no = new JButton("No");
     Random random = new Random();
 
-    test() {
+    App() {
         text.setFont(new Font("Arial", Font.PLAIN, 50));
         text.setBounds(90, 50, 500, 50);
 
@@ -25,8 +25,7 @@ public class test {
         yes.setLocation(150, 300);
         yes.addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed(ActionEvent e)
-            {
+            public void actionPerformed(ActionEvent e) {
                 text.setText("I love you too bebe.");
                 text.setBounds(45, 50, 500, 55);
                 frame.remove(yes);
@@ -41,8 +40,7 @@ public class test {
         no.setLocation(275, 300);
         no.addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed(ActionEvent e)
-            {
+            public void actionPerformed(ActionEvent e) {
                 moveButton(no);
             }
         });
@@ -59,19 +57,18 @@ public class test {
         frame.setVisible(true);
     }
 
-    private void moveButton(JButton button)
-    {
+    private void moveButton(JButton button) {
         int x = random.nextInt(400);
         int y = random.nextInt(400);
 
-        button.setLocation(x,y);
+        button.setLocation(x, y);
 
         frame.revalidate();
         frame.repaint();
     }
 
     public static void main(String[] args) {
-        new test();
+        new App();
     }
 
 }
